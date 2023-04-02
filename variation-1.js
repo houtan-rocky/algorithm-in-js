@@ -1,19 +1,19 @@
 var assert = require('assert')
 const { test } = require('node:test')
 
-function nestedAddition(input) {
+function nestedAdd(input) {
 	if (typeof input === 'number') {
 		return input
 	}
 
 	let res = 0
-	for (m of input) {
-		res += nestedAddition(m)
+	for (let m of input) {
+		res += nestedAdd(m)
 	}
 	return res
 }
 
 const testCase = [1, 2, [1, 3, [2, [1, [6]]]]]
-test('nestedAddition()', () => {
-	assert.equal(nestedAddition(testCase), 16)
+test('nestedAdd()', () => {
+	assert.equal(nestedAdd(testCase), 16)
 })
